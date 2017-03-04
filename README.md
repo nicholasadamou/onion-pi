@@ -37,6 +37,11 @@ Follow the on-screen directions.
 
 It should take less than a minute to install.
 
+More Information
+-------
+
+* [Setup WiFi on Raspberry Pi using Wicd](http://blog.ubidots.com/setup-wifi-on-raspberry-pi-using-wicd)
+
 License
 -------
 
