@@ -80,6 +80,11 @@ configure_tor() {
   EOL
 }
 
+install_mac_changer() {
+  echo "$(tput setaf 6)Installing Mac Changer...$(tput sgr0)"
+  apt-get install macchanger -y
+}
+
 configure_routes() {
   echo "$(tput setaf 6)Flushing old IP tables...$(tput sgr0)"
   iptables -F
@@ -157,6 +162,7 @@ begin() {
   update_pkgs
   install_tor
   configure_tor
+  install_mac_changer
   configure_routes
   configure_logging
   start
