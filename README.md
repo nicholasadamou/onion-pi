@@ -41,6 +41,7 @@ More Information
 -------
 
 * [Setup WiFi on Raspberry Pi using Wicd](http://blog.ubidots.com/setup-wifi-on-raspberry-pi-using-wicd)
+* [Raspberry Pi Ether-WiFi Tor Proxy](https://github.com/breadtk/onion_pi)
 
 License
 -------
