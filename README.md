@@ -43,7 +43,7 @@ More Information
 * [Setup WiFi on Raspberry Pi using Wicd](http://blog.ubidots.com/setup-wifi-on-raspberry-pi-using-wicd)
 * [Raspberry Pi Ether-WiFi Tor Proxy](https://github.com/breadtk/onion_pi)
 * [Raspberry Pi used as a Tor router](https://gary-dalton.github.io/RaspberryPi-projects/rpi_tor.html)
-* [adafruit Onion Pi](https://learn.adafruit.com/onion-pi/install-tor)
+* [adafruit Onion Pi](https://learn.adafruit.com/onion-pi/overview)
 
 License
 -------
