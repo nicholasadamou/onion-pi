@@ -146,7 +146,8 @@ finish() {
 		;;
 		N|n)
 			echo "$(tput setaf 6)Remember to reboot later to apply changes.$(tput sgr0)"
-		;;
+      closing
+    ;;
 		Q|q)s
 		;;
 		*)
@@ -154,6 +155,10 @@ finish() {
 			finish
 		;;
 	esac
+}
+
+closing() {
+	echo "$(tput setaf 6)Thanks for using $(tput bold ; tput setaf 5)$app_name$(tput sgr0)$(tput setaf 6) by $(tput bold ; tput setaf 5)$moniker$(tput sgr0)$(tput setaf 6)!$(tput sgr0)"
 }
 
 begin() {
