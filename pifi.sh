@@ -37,15 +37,15 @@ init() {
 
 update_pkgs() {
   echo "$(tput setaf 6)Updating packages...$(tput sgr0)"
-  apt-get update -q -y
+  apt update -q -y
 }
 
 install_pkgs() {
   echo "$(tput setaf 6)Installing hostapd...$(tput sgr0)"
-  apt-get install hostapd -y
+  apt install hostapd -y
 
   echo "$(tput setaf 6)Installing ISC DHCP server...$(tput sgr0)"
-  apt-get install isc-dhcp-server -y
+  apt install isc-dhcp-server -y
 }
 
 configure_dhcp() {
@@ -68,7 +68,7 @@ configure_dhcp() {
   option domain-name \042local\042;
   option domain-name-servers 8.8.8.8, 8.8.4.4;
   }
-  EOL
+EOL
 
   x=/etc/default/isc-dhcp-server
   cp $x $x.bak
@@ -99,7 +99,7 @@ configure_interfaces() {
   allow-hotplug $station
   iface $station inet dhcp
   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-  EOL
+EOL
 
   echo "$(tput setaf 6)Assigning static IP address 192.168.42.1 to $AP...$(tput sgr0)"
   ifconfig $AP 192.168.42.1
@@ -139,7 +139,7 @@ configure_hostapd() {
   wpa_key_mgmt=WPA-PSK
   wpa_pairwise=TKIP
   rsn_pairwise=CCMP
-  EOL
+EOL
 
   echo "$(tput setaf 6)Setting hostapd to run at system boot...$(tput sgr0)"
   x=/etc/default/hostapd
@@ -317,10 +317,10 @@ begin() {
   status
   enable_on_boot
   set_ssid
-	set_passwd
-	settings_check
-	configure_wifi
-	closing
+  set_passwd
+  settings_check
+  configure_wifi
+  closing
   exit 0
 }
 

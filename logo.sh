@@ -35,6 +35,6 @@ echo "$(tput setaf 2)
             . rJuv::
 
             $(tput setaf 2)$app_name
-	  $(tput bold ; tput setaf 5)by adafruit$(tput sgr0)
+    $(tput bold ; tput setaf 5)by adafruit$(tput sgr0)
        $(tput bold ; tput setaf 5)modified by $moniker$(tput sgr0)
 "

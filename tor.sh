@@ -46,7 +46,7 @@ init() {
               . rJuv::
 
               $(tput setaf 2)$app_name
-  	  $(tput bold ; tput setaf 5)by adafruit$(tput sgr0)
+      $(tput bold ; tput setaf 5)by adafruit$(tput sgr0)
          $(tput bold ; tput setaf 5)modified by $moniker$(tput sgr0)
   "
 
@@ -56,12 +56,12 @@ init() {
 
 update_pkgs() {
   echo "$(tput setaf 6)Updating packages...$(tput sgr0)"
-  apt-get update -q -y
+  apt update -q -y
 }
 
 install_tor() {
   echo "$(tput setaf 6)Installing Tor...$(tput sgr0)"
-  apt-get install tor -y
+  apt install tor -y
 }
 
 configure_tor() {
@@ -77,7 +77,7 @@ configure_tor() {
   TransListenAddress 192.168.42.1
   DNSPort 53
   DNSListenAddress 192.168.42.1
-  EOL
+EOL
 }
 
 install_mac_changer() {
@@ -122,11 +122,11 @@ enable_on_boot() {
 }
 
 wrong_key() {
-	echo -e "$(tput setaf 6)\n-----------------------------$(tput sgr0)"
-	echo -e "$(tput setaf 6)\nError: Wrong value.\n$(tput sgr0)"
-	echo -e "$(tput setaf 6)-----------------------------\n$(tput sgr0)"
-	echo -e "$(tput setaf 6)Enter any key to continue$(tput sgr0)"
-	read -r key
+  echo -e "$(tput setaf 6)\n-----------------------------$(tput sgr0)"
+  echo -e "$(tput setaf 6)\nError: Wrong value.\n$(tput sgr0)"
+  echo -e "$(tput setaf 6)-----------------------------\n$(tput sgr0)"
+  echo -e "$(tput setaf 6)Enter any key to continue$(tput sgr0)"
+  read -r key
 }
 
 finish() {
@@ -134,27 +134,27 @@ finish() {
 
   $(tput bold)Verify by visiting: $(tput setaf 3)https://check.torproject.org/$(tput sgr0)
   "
-	default=Y
-	read -r -p "$(tput setaf 6)Do you want to reboot now to apply changes [Y/n] [Default=Y] [Quit=Q/q]?$(tput sgr0) " input
-	input=${input:-$default}
-	case $input in
-		Y|y)
-			echo "$(tput setaf 6)Rebooting to apply changes...$(tput sgr0)"
-			closing
-			reboot
-			exit 0
-		;;
-		N|n)
-			echo "$(tput setaf 6)Remember to reboot later to apply changes.$(tput sgr0)"
+  default=Y
+  read -r -p "$(tput setaf 6)Do you want to reboot now to apply changes [Y/n] [Default=Y] [Quit=Q/q]?$(tput sgr0) " input
+  input=${input:-$default}
+  case $input in
+    Y|y)
+      echo "$(tput setaf 6)Rebooting to apply changes...$(tput sgr0)"
       closing
+      reboot
+      exit 0
     ;;
-		Q|q)s
-		;;
-		*)
-			wrong_key
-			finish
-		;;
-	esac
+    N|n)
+      echo "$(tput setaf 6)Remember to reboot later to apply changes.$(tput sgr0)"
+      closing
+      ;;
+    Q|q)s
+    ;;
+    *)
+      wrong_key
+      finish
+    ;;
+  esac
 }
 
 closing() {
