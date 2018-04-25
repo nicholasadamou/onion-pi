@@ -48,7 +48,7 @@ setup_onion_pi() {
            rLu2ZB@B@@XqG7$(tput sgr0 ; tput setaf 2)
               . rJuv::
 
-              $(tput setaf 2)"$AP"p_name
+              $(tput setaf 2)$APP_NAME
       $(tput bold ; tput setaf 5)by adafruit$(tput sgr0)
          $(tput bold ; tput setaf 5)modified by $MONIKER$(tput sgr0)
   "
