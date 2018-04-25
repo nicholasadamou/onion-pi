@@ -13,7 +13,6 @@ export TOP_PID=$$
 declare APP_NAME="Onion Pi"
 declare MONIKER="4d4m0u"
 
-declare STATION=wlan1
 declare AP=wlan0
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
