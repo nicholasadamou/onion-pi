@@ -73,7 +73,7 @@ setup_onion_pi() {
   done
 
   FILE=/etc/tor/torrc
-  cp "$FILE" "$FILE".bak
+  sudo cp "$FILE" "$FILE".bak
   cat > "$FILE" <<- EOL
   Log notice file /var/log/tor/notices.log
   VirtualAddrNetwork 10.192.0.0/10
@@ -85,23 +85,23 @@ setup_onion_pi() {
   DNSListenAddress 192.168.42.1
 EOL
 
-  iptables -F
-  iptables -t nat -F
+  sudo iptables -F
+  sudo iptables -t nat -F
 
-  iptables -t nat -A PREROUTING -i "$AP" -p tcp --dport 22 -j REDIRECT --to-ports 22
-  iptables -t nat -A PREROUTING -i "$AP" -p udp --dport 53 -j REDIRECT --to-ports 53
-  iptables -t nat -A PREROUTING -i "$AP" -p tcp --syn -j REDIRECT --to-ports 9040
+  sudo iptables -t nat -A PREROUTING -i "$AP" -p tcp --dport 22 -j REDIRECT --to-ports 22
+  sudo iptables -t nat -A PREROUTING -i "$AP" -p udp --dport 53 -j REDIRECT --to-ports 53
+  sudo iptables -t nat -A PREROUTING -i "$AP" -p tcp --syn -j REDIRECT --to-ports 9040
 
-  sh -c "iptables-save > /etc/iptables.ipv4.nat"
+  sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
   sudo systemctl enable netfilter-persistent
 
   FILE=/var/log/tor/notices.log
-  touch "$FILE"
-  chown debian-tor "$FILE"
-  chmod 644 "$FILE"
+  sudo touch "$FILE"
+  sudo chown debian-tor "$FILE"
+  sudo chmod 644 "$FILE"
 
-  service tor start
-  update-rc.d tor enable
+  sudo service tor start
+  sudo update-rc.d tor enable
 }
 
 restart() {
