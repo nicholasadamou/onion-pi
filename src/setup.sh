@@ -56,7 +56,7 @@ setup_onion_pi() {
   echo "$(tput setaf 6)This script will configure your Raspberry Pi as an Onion Pi Tor proxy.$(tput sgr0)"
   
   if [ "$TRAVIS" != "true" ]; then
-      read -p "$(tput bold ; tput setaf 2)Press [Enter] to begin, [Ctrl-C] to abort...$(tput sgr0)"
+      read -r -p "$(tput bold ; tput setaf 2)Press [Enter] to begin, [Ctrl-C] to abort...$(tput sgr0)"
   fi
 
   update
