@@ -3,7 +3,7 @@
 # Based on Adafruit Learning Technologies Onion Pi project
 # see: http://learn.adafruit.com/onion-pi
 
-declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/utilities/linux/utils.sh"
+declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/utilities/master/utilities.sh"
 
 declare skipQuestions=false
 
