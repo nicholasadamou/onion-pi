@@ -68,14 +68,14 @@ setup_onion_pi() {
   sudo cp "$FILE" "$FILE".bak
   
   sudo bash -c "cat > $FILE" <<-EOL
-  Log notice file /var/log/tor/notices.log
-  VirtualAddrNetwork 10.192.0.0/10
-  AutomapHostsSuffixes .onion,.exit
-  AutomapHostsOnResolve 1
-  TransPort 9040
-  TransListenAddress 192.168.42.1
-  DNSPort 53
-  DNSListenAddress 192.168.42.1
+Log notice file /var/log/tor/notices.log
+VirtualAddrNetwork 10.192.0.0/10
+AutomapHostsSuffixes .onion,.exit
+AutomapHostsOnResolve 1
+TransPort 9040
+TransListenAddress 192.168.42.1
+DNSPort 53
+DNSListenAddress 192.168.42.1
 EOL
 
   sudo iptables -F
