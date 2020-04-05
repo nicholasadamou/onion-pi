@@ -5,11 +5,6 @@
 
 declare BASH_UTILS_URL="https://raw.githubusercontent.com/nicholasadamou/utilities/master/utilities.sh"
 
-declare skipQuestions=false
-
-trap "exit 1" TERM
-export TOP_PID=$$
-
 declare APP_NAME="Onion Pi"
 declare MONIKER="4d4m0u"
 
@@ -53,10 +48,8 @@ setup_onion_pi() {
   "
 
   echo "$(tput setaf 6)This script will configure your Raspberry Pi as an Onion Pi Tor proxy.$(tput sgr0)"
-  
-  if [ "$TRAVIS" != "true" ]; then
-      read -r -p "$(tput bold ; tput setaf 2)Press [Enter] to begin, [Ctrl-C] to abort...$(tput sgr0)"
-  fi
+
+  read -r -p "$(tput bold ; tput setaf 2)Press [Enter] to begin, [Ctrl-C] to abort...$(tput sgr0)"
 
   update
   upgrade
@@ -68,7 +61,7 @@ setup_onion_pi() {
   )
 
   for PKG in "${PKGS[@]}"; do
-      install_package "$PKG" "$PKG"
+      install_package "$PKG"
   done
 
   FILE=/etc/tor/torrc
@@ -105,7 +98,7 @@ EOL
 
 restart() {
     ask_for_confirmation "Do you want to restart?"
-    
+
     if answer_is_yes; then
         sudo shutdown -r now &> /dev/null
     fi
@@ -121,11 +114,6 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    skip_questions "$@" \
-        && skipQuestions=true
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     ask_for_sudo
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -133,10 +121,8 @@ main() {
     setup_onion_pi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    
-    if ! $skipQuestions; then
-        restart
-    fi
+
+    restart
 }
 
-main "$@"
+main
