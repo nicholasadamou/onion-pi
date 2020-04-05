@@ -66,7 +66,8 @@ setup_onion_pi() {
 
   FILE=/etc/tor/torrc
   sudo cp "$FILE" "$FILE".bak
-  cat > "$FILE" <<- EOL
+  
+  sudo bash -c "cat > $FILE" <<-EOL
   Log notice file /var/log/tor/notices.log
   VirtualAddrNetwork 10.192.0.0/10
   AutomapHostsSuffixes .onion,.exit
