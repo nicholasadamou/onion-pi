@@ -1,4 +1,4 @@
-Onion Pi [![Build Status](https://travis-ci.org/nicholasadamou/OnionPi.svg?branch=master)](https://travis-ci.org/nicholasadamou/OnionPi)
+Onion Pi
 ========
 ![logo](logo.png)
 
