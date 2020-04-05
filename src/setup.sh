@@ -107,7 +107,7 @@ restart() {
 
 main() {
     # Ensure that the bash utilities functions have
-	  # been sourced.
+    # been sourced.
 
     source <(curl -s "$BASH_UTILS_URL")
 
