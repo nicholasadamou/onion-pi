@@ -51,8 +51,8 @@ setup_onion_pi() {
 
   read -r -p "$(tput bold ; tput setaf 2)Press [Enter] to begin, [Ctrl-C] to abort...$(tput sgr0)"
 
-  update
-  upgrade
+  apt_update
+  apt_upgrade
 
   declare -a PKGS=(
       "tor"
@@ -105,12 +105,10 @@ restart() {
 }
 
 main() {
-    # Ensure that the following actions
-    # are made relative to this file's path.
+    # Ensure that the bash utilities functions have
+	  # been sourced.
 
-    cd "$(dirname "${BASH_SOURCE[0]}")" \
-        && source <(curl -s "$BASH_UTILS_URL") \
-        || exit 1
+    source <(curl -s "$BASH_UTILS_URL")
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
